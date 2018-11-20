@@ -1,14 +1,21 @@
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
-
+  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-execute');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.initConfig({
 
     clean: ["dist"],
-
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc',
+        ignores: ['src/**/lib/**'],
+      },
+      src: ['Gruntfile.js', 'src/**/*.js'],
+    },
     copy: {
       src_to_dist: {
         cwd: 'src',
@@ -40,8 +47,7 @@ module.exports = function(grunt) {
     babel: {
       options: {
         sourceMap: true,
-        presets:  ["es2015"],
-        plugins: ['transform-es2015-modules-systemjs', "transform-es2015-for-of"],
+        presets:  ["env"],
       },
       dist: {
         files: [{
@@ -56,5 +62,5 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:img_to_dist', 'copy:pluginDef', 'babel']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copy:src_to_dist', 'copy:img_to_dist', 'copy:pluginDef', 'babel']);
 };

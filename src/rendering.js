@@ -88,7 +88,7 @@ export default function link(scope, elem, attrs, ctrl) {
 
     plotCanvas.css(plotCss);
 
-    var backgroundColor = $('body').css('background-color')
+    var backgroundColor = $('body').css('background-color');
 
     var options = {
       legend: {
@@ -172,7 +172,7 @@ export default function link(scope, elem, attrs, ctrl) {
               "source":labelArray[i],
               "target":labelArray[i+1],
               "value":element.data
-      }
+      };
           }
         }
 /*
@@ -195,14 +195,14 @@ export default function link(scope, elem, attrs, ctrl) {
       }
 
       // Set chart options
-      var options = {
+      var chartOptions = {
         width: '100%',
         height: height,
       };
 
       // Instantiate and draw our sankey, passing in some options.
       var chart = new google.visualization.Sankey(elem['0']);
-      chart.draw(data1, options); 
+      chart.draw(data1, chartOptions); 
     
   }
 

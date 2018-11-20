@@ -119,13 +119,13 @@ export class SankeyCtrl extends MetricsPanelCtrl {
           return series;
         }
       }
-    var series = new TimeSeries({
+    var newSeries = new TimeSeries({
       datapoints: seriesData.datapoints,
       alias: seriesData.target
     });
 
-    series.flotpairs = series.getFlotPairs(this.panel.nullPointMode);
-    return series;
+    newSeries.flotpairs = newSeries.getFlotPairs(this.panel.nullPointMode);
+    return newSeries;
   }
 
   getDecimalsForValue(value) {

@@ -78,9 +78,7 @@ angular.module('grafana.directives').directive('sankeyLegend', function(popoverS
           var html = '<th class="pointer" data-stat="' + statName + '">' + name;
 
           if (panel.legend.sort === statName) {
-            var cssClass = panel.legend.sortDesc
-              ? "fa fa-caret-down"
-              : "fa fa-caret-up";
+            var cssClass = panel.legend.sortDesc ? "fa fa-caret-down" : "fa fa-caret-up";
             html += ' <span class="' + cssClass + '"></span>';
           }
 
@@ -92,9 +90,7 @@ angular.module('grafana.directives').directive('sankeyLegend', function(popoverS
           var html = '<th class="pointer" data-stat="' + statName + '">' + name;
 
           if (panel.legend.sort === statName) {
-            var cssClass = panel.legend.sortDesc
-              ? "fa fa-caret-down"
-              : "fa fa-caret-up";
+            var cssClass = panel.legend.sortDesc ? "fa fa-caret-down" : "fa fa-caret-up";
             html += ' <span class="' + cssClass + '"></span>';
           }
 
@@ -180,9 +176,8 @@ angular.module('grafana.directives').directive('sankeyLegend', function(popoverS
             seriesList = seriesList.reverse();
           }
         }
-
+        var total = 0;
           if (panel.legend.percentage) {
-            var total = 0;
             for (i = 0; i < seriesList.length; i++) {
               total += seriesList[i].stats[ctrl.panel.valueName];
             }
